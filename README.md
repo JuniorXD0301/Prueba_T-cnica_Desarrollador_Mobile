@@ -38,9 +38,3 @@ Aplicación móvil de gestión de tareas construida con Ionic, Angular y Firebas
 ## Rama de desarrollo
 
 Todas las funcionalidades de la aplicación (categorías, estadísticas, Firebase Remote Config) están en la rama **`feature/todo-categories`**. Asegúrate de estar en esa rama antes de correr el proyecto.
-
-## Demo
-El video de demostración de la aplicación se encuentra en 
-```bash
-   cd todo-app\src\assets\video
-```
