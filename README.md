@@ -12,7 +12,7 @@ Aplicación móvil de gestión de tareas construida con Ionic, Angular y Firebas
 
 1. Clonar el repositorio:
 ```bash
-   git clone (https://github.com/JuniorXD0301/Prueba_T-cnica_Desarrollador_Mobile.git)
+   git clone https://github.com/JuniorXD0301/Prueba_T-cnica_Desarrollador_Mobile.git
 ```
 
 2. Entrar a la carpeta del proyecto:
