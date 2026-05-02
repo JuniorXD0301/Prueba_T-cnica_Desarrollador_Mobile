@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { TabsPage } from './tabs.page';
+import { TabsPage } from './pages/tabs.page';
 
 const routes: Routes = [
   {
@@ -17,6 +17,11 @@ const routes: Routes = [
         path: 'categories',
         loadChildren: () =>
           import('../category-manage/category-manage.module').then((m) => m.CategoryManagePageModule),
+      },
+      {
+        path: 'statistics',
+        loadChildren: () =>
+          import('../statistics/statistics.module').then((m) => m.StatisticsPageModule),
       },
       {
         path: '',

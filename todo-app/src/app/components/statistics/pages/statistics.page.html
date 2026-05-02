@@ -1,0 +1,61 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Statistics</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Statistics</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <section class="summary">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="4">
+          <div class="summary-item">
+            <span>{{ taskTotal }}</span>
+            <small>Total</small>
+          </div>
+        </ion-col>
+        <ion-col size="4">
+          <div class="summary-item complete">
+            <span>{{ completedTotal }}</span>
+            <small>Completed</small>
+          </div>
+        </ion-col>
+        <ion-col size="4">
+          <div class="summary-item pending">
+            <span>{{ uncompletedTotal }}</span>
+            <small>Pending</small>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </section>
+
+  @if (statistics.length === 0) {
+    <ion-text color="medium" class="empty-state">
+      <p>No tasks to classify yet.</p>
+    </ion-text>
+  } @else {
+    <ion-list lines="full">
+      <ion-virtual-scroll [items]="statistics" itemHeight="120px">
+        <ng-template let-row>
+          <ion-item>
+            <ion-label>
+              <h2>{{ row.categoryName }}</h2>
+              <p>{{ row.completed }} completed · {{ row.uncompleted }} uncompleted</p>
+              <div class="progress-track" aria-hidden="true">
+                <div class="progress-bar" [style.width.%]="row.completionPercent"></div>
+              </div>
+            </ion-label>
+            <ion-badge slot="end" color="primary">{{ row.completionPercent }}%</ion-badge>
+          </ion-item>
+        </ng-template>
+      </ion-virtual-scroll>
+    </ion-list>
+  }
+</ion-content>

@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
 
-import { Category } from '../../../models/Category';
+import { Category } from '../../../../models/Category';
 
 @Component({
   selector: 'app-category-detail-modal',

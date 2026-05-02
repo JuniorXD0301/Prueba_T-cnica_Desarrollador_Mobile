@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 
-import { Category } from '../../../models/Category';
+import { Category } from '../../../../models/Category';
 
 @Component({
   selector: 'app-category-delete-modal',

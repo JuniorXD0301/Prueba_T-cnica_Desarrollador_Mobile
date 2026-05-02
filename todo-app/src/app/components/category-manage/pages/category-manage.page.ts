@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { combineLatest } from 'rxjs';
 
-import { Category } from '../../models/Category';
-import { Task } from '../../models/Task';
-import { CategoryService } from '../../services/category.service';
-import { TaskService } from '../../services/taskService.service';
+import { Category } from '../../../models/Category';
+import { Task } from '../../../models/Task';
+import { CategoryService } from '../../../services/category.service';
+import { TaskService } from '../../../services/taskService.service';
 import { CategoryDeleteModal } from '../modals/category-delete/category-delete.modal';
 import { CategoryDetailModal } from '../modals/category-detail/category-detail.modal';
 

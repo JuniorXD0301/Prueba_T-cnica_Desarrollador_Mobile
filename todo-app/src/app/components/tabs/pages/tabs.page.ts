@@ -12,7 +12,7 @@ import {
   barChartOutline,
   checkboxOutline,
 } from 'ionicons/icons';
-import { FeatureFlagService } from '../services/feature-flag';
+import { FeatureFlagService } from '../../../services/feature-flag';
 import { AsyncPipe } from '@angular/common';
 
 @Component({

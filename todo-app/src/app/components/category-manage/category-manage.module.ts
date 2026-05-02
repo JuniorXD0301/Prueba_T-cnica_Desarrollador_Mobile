@@ -7,7 +7,7 @@ import { CategoryDeleteModal } from './modals/category-delete/category-delete.mo
 import { CategoryDetailModal } from './modals/category-detail/category-detail.modal';
 import { CategoryManagePageRoutingModule } from './category-manage-routing.module';
 import { CategoryManagePage } from './pages/category-manage.page';
-import { SharedModule } from '../shared/shared.module';
+import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
   declarations: [CategoryDeleteModal, CategoryDetailModal, CategoryManagePage],

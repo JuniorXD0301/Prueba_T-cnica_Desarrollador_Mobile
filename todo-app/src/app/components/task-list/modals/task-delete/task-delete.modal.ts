@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 
-import { Task } from '../../../models/Task';
+import { Task } from '../../../../models/Task';
 
 @Component({
   selector: 'app-task-delete-modal',
