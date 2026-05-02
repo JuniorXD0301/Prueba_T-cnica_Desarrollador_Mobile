@@ -22,14 +22,21 @@ import {
 } from '@angular/fire/remote-config';
 import { environment } from './environments/environment';
 
-bootstrapApplication(AppComponent, {
-  providers: [
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    provideIonicAngular(),
-    importProvidersFrom(IonicStorageModule.forRoot()),
-    provideRouter(routes, withPreloading(PreloadAllModules)),
+const startApp = () => {
+  bootstrapApplication(AppComponent, {
+    providers: [
+      { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+      provideIonicAngular(),
+      importProvidersFrom(IonicStorageModule.forRoot()),
+      provideRouter(routes, withPreloading(PreloadAllModules)),
+      provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+      provideRemoteConfig(() => getRemoteConfig()),
+    ],
+  });
+};
 
-    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
-    provideRemoteConfig(() => getRemoteConfig()),
-  ],
-});
+if ((window as any).cordova) {
+  document.addEventListener('deviceready', startApp, false);
+} else {
+  startApp();
+}
