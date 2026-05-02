@@ -1,0 +1,61 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Tasks</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="openTaskModal()">Add</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Tasks</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-list lines="none" class="filter-list">
+    <ion-item>
+      <ion-select label="Filter by category" [(ngModel)]="selectedCategoryId" interface="popover">
+        <ion-select-option value="all">All categories</ion-select-option>
+        @for (category of categories; track category.id) {
+          <ion-select-option [value]="category.id">{{ category.name }}</ion-select-option>
+        }
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+  @if ((tasks | taskCategoryFilter:selectedCategoryId).length === 0) {
+    <ion-text color="medium" class="empty-state">
+      <p>No tasks yet.</p>
+    </ion-text>
+  } @else {
+    <ion-list>
+      <ion-virtual-scroll [items]="tasks | taskCategoryFilter:selectedCategoryId" itemHeight="84px">
+        <ng-template let-task>
+          <ion-item-sliding>
+            <ion-item>
+              <ion-checkbox
+                slot="start"
+                [checked]="task.completed"
+                (ionChange)="toggleCompleted(task, $event)"
+                aria-label="Mark as complete"
+              ></ion-checkbox>
+              <ion-label>
+                <h2 [class.completed]="task.completed">{{ task.title }}</h2>
+                @if (task.description) {
+                  <p>{{ task.description }}</p>
+                }
+                <ion-note>{{ getCategoryName(task.categoryId) }}</ion-note>
+              </ion-label>
+              <ion-button fill="clear" slot="end" (click)="openTaskModal(task)">Edit</ion-button>
+            </ion-item>
+            <ion-item-options side="end">
+              <ion-item-option color="danger" (click)="confirmDelete(task)">Delete</ion-item-option>
+            </ion-item-options>
+          </ion-item-sliding>
+        </ng-template>
+      </ion-virtual-scroll>
+    </ion-list>
+  }
+</ion-content>

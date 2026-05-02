@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Delete category</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  @if (canDelete) {
+    <p>Delete "{{ category?.name }}"?</p>
+    <ion-button expand="block" color="danger" (click)="delete()">Delete</ion-button>
+  } @else {
+    <p>"{{ category?.name }}" has {{ taskCount }} associated task(s) and cannot be deleted.</p>
+  }
+
+  <ion-button expand="block" fill="clear" (click)="cancel()">Cancel</ion-button>
+</ion-content>

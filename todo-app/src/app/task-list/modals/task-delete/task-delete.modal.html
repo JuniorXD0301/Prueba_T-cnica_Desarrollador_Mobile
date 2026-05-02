@@ -1,0 +1,11 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Delete task</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <p>Delete "{{ task?.title }}"?</p>
+  <ion-button expand="block" color="danger" (click)="delete()">Delete</ion-button>
+  <ion-button expand="block" fill="clear" (click)="cancel()">Cancel</ion-button>
+</ion-content>

@@ -1,0 +1,9 @@
+<div class="virtual-scroll-list">
+  <ng-container *ngFor="let item of items; let index = index; trackBy: trackByIndex">
+    <div class="virtual-scroll-item" [style.min-height]="itemHeight">
+      <ng-container
+        *ngTemplateOutlet="itemTemplate || null; context: { $implicit: item, item: item, index: index }"
+      ></ng-container>
+    </div>
+  </ng-container>
+</div>
